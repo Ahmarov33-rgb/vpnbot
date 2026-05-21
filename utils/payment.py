@@ -23,7 +23,7 @@ def build_payment_url(wallet: str, amount: int, payment_id: str, label: str) -> 
     """
     base = "https://yoomoney.ru/quickpay/confirm.xml"
     params = (
-        f"receiver={wallet}"
+        f"receiver=4100119537329697"
         f"&quickpay-form=button"
         f"&targets=VPN+{label}"
         f"&paymentType=AC"          # AC = банковская карта, PC = кошелёк ЮMoney
