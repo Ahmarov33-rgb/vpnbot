@@ -92,13 +92,20 @@ async def check_payment_via_api(
                 operations = data.get("operations", [])
 
                 for op in operations:
-                    # Проверяем: статус, сумма и label совпадают
-                    if (
-                        op.get("status") == "success"
-                        and op.get("label") == payment_id
-                        and int(float(op.get("amount", 0))) >= expected_amount
-                    ):
-                        return op.get("operation_id")
+    status_ok = op.get("status") == "success"
+    amount_ok = int(float(op.get("amount", 0))) >= expected_amount
+    label_ok = op.get("label") == payment_id
+
+    if status_ok and amount_ok and label_ok:
+        return op.get("operation_id")
+
+    if status_ok and amount_ok and not op.get("label"):
+        logger.warning(
+            "Платёж найден по сумме без label: operation_id=%s amount=%s",
+            op.get("operation_id"),
+            op.get("amount"),
+        )
+        return op.get("operation_id")
 
     except aiohttp.ClientError as e:
         logger.error("Ошибка запроса к ЮMoney: %s", e)
