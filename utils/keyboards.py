@@ -28,7 +28,7 @@ def main_menu() -> ReplyKeyboardMarkup:
 def buy_keyboard(payment_url: str, payment_id: str) -> InlineKeyboardMarkup:
     kb = InlineKeyboardBuilder()
     kb.row(InlineKeyboardButton(
-        text="💳 Оплатить через ЮMoney",
+        text="💳 Оплатить через СБП",
         url=payment_url
     ))
     kb.row(InlineKeyboardButton(
