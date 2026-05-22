@@ -7,7 +7,7 @@ from config import config
 def welcome_text(full_name: str) -> str:
     return (
         f"👋 Привет, <b>{full_name}</b>!\n\n"
-        f"Добро пожаловать в <b>VPN Bot</b> — быстрый и надёжный VPN.\n\n"
+        f"Добро пожаловать в <b>HAS VPN</b> — быстрый и надёжный VPN.\n\n"
         f"🔒 Анонимность и безопасность в интернете\n"
         f"⚡️ Высокая скорость соединения\n"
         f"🌍 Серверы по всему миру\n\n"
