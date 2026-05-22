@@ -46,7 +46,7 @@ def load_config() -> Config:
         yoomoney_wallet=os.getenv("YOOMONEY_WALLET", ""),
         yoomoney_secret=os.getenv("YOOMONEY_SECRET", ""),
         yoomoney_token=os.getenv("YOOMONEY_TOKEN", ""),
-        vpn_price=int(os.getenv("VPN_PRICE", "299")),
+        vpn_price=int(os.getenv("VPN_PRICE", "199")),
         vpn_plan_name=os.getenv("VPN_PLAN_NAME", "VPN Premium — 30 дней"),
         vpn_instructions_url=os.getenv("VPN_INSTRUCTIONS_URL", ""),
         low_keys_threshold=int(os.getenv("LOW_KEYS_THRESHOLD", "3")),
