@@ -114,7 +114,7 @@ async def check_payment_callback(callback: CallbackQuery) -> None:
     return
 
 # Оплата подтверждена — выдаём ключ
-await _issue_key(
+    await _issue_key(
     callback.message,
     callback.from_user.id,
     payment_id,
