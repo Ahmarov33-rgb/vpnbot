@@ -107,20 +107,11 @@ async def check_payment_callback(callback: CallbackQuery) -> None:
     )
 
     if not operation_id:
-        await callback.message.edit_text(
-            texts.payment_pending_text(),
-            reply_markup=keyboards.buy_keyboard(
-                payment.build_payment_url(
-                    config.yoomoney_wallet,
-                    pay_record["amount"],
-                    payment_id,
-                    f"user_{callback.from_user.id}",
-                ),
-                payment_id,
-            ),
-            parse_mode="HTML",
-        )
-        return
+    await callback.answer(
+        "⏳ Платёж пока не найден. Попробуйте через минуту.",
+        show_alert=True
+    )
+    return
 
     # Оплата подтверждена — выдаём ключ
     await _issue_key(callback.message, callback.from_user.id, payment_id, pay_record["amount"])
