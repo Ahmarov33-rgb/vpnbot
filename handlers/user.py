@@ -107,7 +107,7 @@ async def check_payment_callback(callback: CallbackQuery) -> None:
     )
 
     if not operation_id:
-    await callback.answer(
+        await callback.answer(
         "⏳ Платёж пока не найден. Попробуйте через минуту.",
         show_alert=True
     )
