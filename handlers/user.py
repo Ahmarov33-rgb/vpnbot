@@ -113,8 +113,13 @@ async def check_payment_callback(callback: CallbackQuery) -> None:
     )
     return
 
-    # Оплата подтверждена — выдаём ключ
-    await _issue_key(callback.message, callback.from_user.id, payment_id, pay_record["amount"])
+# Оплата подтверждена — выдаём ключ
+await _issue_key(
+    callback.message,
+    callback.from_user.id,
+    payment_id,
+    pay_record["amount"]
+)
 
 
 async def _issue_key(message: Message, user_id: int, payment_id: str, amount: int) -> None:
